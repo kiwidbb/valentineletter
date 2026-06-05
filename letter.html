@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Letter</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CBE9EF;
+    font-family: "Georgia", serif;
+}
+
+/* Container */
+.container {
+    position: relative;
+}
+
+/* Envelope */
+.envelope {
+    width: 260px;
+    height: 160px;
+    position: relative;
+    cursor: pointer;
+}
+
+.base {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 2px solid #ccc;
+    position: absolute;
+    bottom: 0;
+}
+
+.flap {
+    width: 0;
+    height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-bottom: 80px solid white;
+    position: absolute;
+    top: -80px;
+    left: 0;
+    transform-origin: bottom;
+    transition: transform 0.6s ease;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+/* Paper */
+.paper {
+    width: 420px;
+    height: 600px;
+    background: white;
+    border: 2px solid #ccc;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%, 20px) scale(0.85);
+    padding: 50px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 0.8s ease;
+    overflow-y: auto;
+    line-height: 1.6;
+    z-index: -1;
+}
+
+/* Show paper */
+.paper.show {
+    opacity: 1;
+    transform: translate(-50%, -320px) scale(1);
+    z-index: 1;
+}
+
+/* Scrollbar subtle */
+.paper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.paper::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="base"></div>
+    </div>
+
+    <div class="paper" id="paper">
+        <p>
+        to my dearest neemi,<br><br>
+
+        yay valentines day!!! im gonna yap about you because i just like talking about you. its been 603 days since we met, and 130 days since we told each other how we felt. and i am not exaggerating when i say this, these 603 days have had some of my best days ever, and all of them are because of you. honestly, ive never been excited to see someones message or waited for them to come online or anything like that, because i just never felt that way with anyone. but i did with you. i would keep waiting for you to text me everyday, and when you finally did? oh my god it was the best thing ever. id drop everything to see what it was and i was just happy to be talking to MY BEST FRIENDD :DD. back then i really didn't understand people very well (still dont lol) and i couldn't tell if you even liked me as a friend. when you said you consider me a best friend it shocked me so bad i actually thought you were joking. and ever since then all i ever wanted was to be more and more close to you. i wanted to be the CLOSEST person you had. i wanted you all for meee only. and tbh i still do but whatever 🙄🙄 apparently you have other friends and family to deal with so i'll let it slide. it was around this time i really started liking you i guess? im sorry, i really dont know when it exactly was but ive always just wanted to be someone close to you. i guess somewhere in between i caught feelings for you and i just wanted to be yours forever. im so happy that you feel the same.<br><br>
+
+        i know its valentines day and all, but i want you to know that every single day with you is special to me. forget the calendar, happy 12 year anniversary hayati 😘😘😘. jokes aside, thank you for being the way you are. for always listening, for always remembering, and for always being there for me. you seriously make me feel so special all the time like stop jkhfsaklfj im literally gonna die. i will always love you, from the bottom of my heart and with everything i have. happy valentines day my sweet little bunny 💚 <br> <br> with love, kiwiwi 💙
+        </p>
+    </div>
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const paper = document.getElementById("paper");
+
+envelope.addEventListener("click", () => {
+    envelope.classList.add("open");
+    paper.classList.add("show");
+});
+</script>
+
+</body>
+</html>
